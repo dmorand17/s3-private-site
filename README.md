@@ -1,4 +1,4 @@
-# S3 Private HTTP Site
+# 🌐 S3 Private HTTP Site
 
 This Terraform module creates a private HTTP S3 site with the following components:
 
@@ -8,7 +8,7 @@ This Terraform module creates a private HTTP S3 site with the following componen
 - A Route 53 private hosted zone created dynamically and a record pointing to the ALB.
 - A default `index.html` file for testing the setup.
 
-## Usage
+## 🚀 Usage
 
 ```hcl
 module "s3_private_site" {
@@ -22,7 +22,7 @@ module "s3_private_site" {
 }
 ```
 
-## Inputs
+## 📥 Inputs
 
 | Name                       | Description                                            | Type           | Required |
 | -------------------------- | ------------------------------------------------------ | -------------- | -------- |
@@ -32,7 +32,7 @@ module "s3_private_site" {
 | `region`                   | The AWS region.                                        | `string`       | Yes      |
 | `subnet_ids`               | The list of subnet IDs for the ALB.                    | `list(string)` | Yes      |
 
-## Outputs
+## 📤 Outputs
 
 | Name                       | Description                                   |
 | -------------------------- | --------------------------------------------- |
@@ -40,7 +40,7 @@ module "s3_private_site" {
 | `s3_endpoint_id`           | The ID of the VPC endpoint.                   |
 | `vpc_endpoint_private_ips` | The private IP addresses of the VPC endpoint. |
 
-## Deployment
+## 🛠️ Deployment
 
 1. Create an S3 bucket with versioning enabled for Terraform state management:
 
@@ -72,34 +72,18 @@ module "s3_private_site" {
    use_lockfile   = true
    ```
 
-## Usage
-
-1. Initialize Terraform with the backend configuration:
-
-   ```sh
-   terraform init -backend-config=environments/<env>/backend.config
-   ```
-
-2. Apply the configuration:
-
-   ```sh
-   terraform apply -var-file=environments/<env>/terraform.tfvars
-   ```
-
-3. Confirm the apply step with `yes`.
-
-## Testing
+## 🧪 Testing
 
 Once the module is applied, you can test the setup by:
 
 1. Accessing the ALB DNS name or the Route 53 record name from within the VPC.
 2. You should see the default `index.html` content: "Welcome to the S3 Private Site".
 
-## Notes
+## 📝 Notes
 
 - Ensure that the ALB security group allows inbound traffic on port 80 from the appropriate sources.
 - The S3 bucket policy restricts access to the bucket via the specified VPC endpoint only.
 
-## License
+## 📜 License
 
 This project is licensed under the MIT License.
